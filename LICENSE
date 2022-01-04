@@ -19,3 +19,25 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+External libraries
+
+This source code uses the following external libraries:
+
+React
+Copyright © Facebook, Inc. and its affiliates.
+Licensed under MIT license, see LICENSE.MIT for details.
+
+Tailwindcss
+Copyright © Adam Wathan <adam.wathan@gmail.com>
+Copyright © Jonathan Reinink <jonathan@reinink.ca>
+Licensed under MIT license, see LICENSE.MIT for details.
+
+Firebase-js-sdk 
+Copyright © 2020 Google LLC
+Licensed under Apache-2.0 license, see LICENSE.APACHE-2 for details.
+
+Material Design Icons
+Copyright © 2015 Google Inc
+Licensed under Apache-2.0 license, see LICENSE.APACHE-2 for details.
