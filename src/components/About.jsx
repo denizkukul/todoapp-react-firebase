@@ -16,7 +16,6 @@ function About() {
         </h2>
         <ul className="list-disc ml-10">
           <li>App is built with React and Tailwindcss.</li>
-          {/* <li>Animations are made with css transitions.</li> */}
           <li>Tailwindcss screen breakpoints are used for responsive design.</li>
           <li>Icons are taken from material design icons.</li>
         </ul>
