@@ -35,6 +35,7 @@ Licensed under MIT license, see LICENSE.MIT for details. \
 ### Tailwindcss
 Copyright © Adam Wathan <adam.wathan@gmail.com> \
 Copyright © Jonathan Reinink <jonathan@reinink.ca> \
+Licensed under MIT license, see LICENSE.MIT for details. \
 [Github](https://github.com/tailwindlabs/tailwindcss) \
 [Website](https://tailwindcss.com/)
 
