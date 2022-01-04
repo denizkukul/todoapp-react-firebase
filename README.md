@@ -1,4 +1,4 @@
-# JS Firebase Todoapp
+# React Firebase Todoapp
 
 # [Live Site](https://todoappa-react.firebaseapp.com/)
 
