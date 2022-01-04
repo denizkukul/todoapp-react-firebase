@@ -18,7 +18,7 @@ Todo app with functions to add, edit and remove list items.
 - Firebase hosting for deployment.
 
 ## License
-Copyright © 2021 Deniz Kukul \
+Copyright © 2022 Deniz Kukul \
 Licensed under MIT license see LICENSE.MIT for details.
 
 ### External libraries
