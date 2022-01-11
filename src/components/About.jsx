@@ -79,7 +79,7 @@ function About({ setTab, animateOut, setAnimateOut }) {
             </a>
           </li>
           <li>
-            <a href="https://github.com/react-icons/react-icons" className="outline-none focus-visible:text-color-800 focus-visible:underline hoverable:hover:text-color-800 hoverable:hover:underline" target={"_blank"}>
+            <a href="https://react-icons.github.io/react-icons/" className="outline-none focus-visible:text-color-800 focus-visible:underline hoverable:hover:text-color-800 hoverable:hover:underline" target={"_blank"}>
               React Icons
             </a>
           </li>
