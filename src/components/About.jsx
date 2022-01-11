@@ -43,7 +43,7 @@ function About({ setTab, animateOut, setAnimateOut }) {
           <li>App is built with React and Tailwindcss.</li>
           <li>Tailwindcss screen breakpoints are used for responsive design.</li>
           <li>Icons are taken from material design icons.</li>
-          <li>React-Icons is used for material design icon components</li>
+          <li>React-Icons is used for material design icon components.</li>
         </ul>
         <h2 className="text-lg ml-5 mt-1">
           Backend

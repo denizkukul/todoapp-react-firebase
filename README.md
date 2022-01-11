@@ -9,6 +9,7 @@ Todo app with functions to add, edit and remove list items.
 ### Frontend
 - App is built with React and Tailwindcss.
 - Tailwindcss screen breakpoints are used for responsive design.
+- React-Icons is used for material design icon components.
 - Icons are taken from material design icons.
 
 ### Backend
