@@ -45,6 +45,12 @@ Licensed under Apache-2.0 license, see LICENSE.APACHE-2 for details. \
 [Github](https://github.com/firebase/firebase-js-sdk) \
 [Website](https://firebase.google.com/)
 
+### React-Icons
+Copyright © 2018 kamijin_fanta <kamijin@live.jp> \
+Licensed under MIT license, see LICENSE.MIT for details. \
+[Github](https://github.com/react-icons/react-icons) \
+[Website](https://react-icons.github.io/react-icons/)
+
 ### Material Design Icons
 Copyright © 2015 Google Inc\
 Licensed under Apache-2.0 license, see LICENSE.APACHE-2 for details. \
