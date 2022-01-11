@@ -26,7 +26,7 @@ function About({ setTab, animateOut, setAnimateOut }) {
 
   return (
     <div className={`${enableAnimations ? `transition-[height] duration-default ${active ? "h-full" : "h-0"}` : "h-full"} overflow-scroll px-2 4xs:px-4 sm:px-6 md:px-10 lg:px-16 fixed top-12 4xs:top-16 xs:top-20 bottom-0 w-full min-w-[240px] max-w-4xl lg:max-w-5xl bg-color-200 text-color-700 z-50`}>
-      <div className="pt-7 4xs:pt-8 xs:pt-10 h-[700px]">
+      <div className="pt-7 4xs:pt-8 xs:pt-10 h-[800px]">
         <h1 className="text-[22px]">
           App
         </h1>
