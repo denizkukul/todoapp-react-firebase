@@ -10,17 +10,23 @@ import Modal from "./Modal";
 import { useAuthContext } from "../contexts/AuthContext";
 import { onValue, ref } from "firebase/database";
 import { db } from "../firebase";
-import { useSetSettingsContext } from "../contexts/SettingsContext";
+import { useSetInitialRenderContext, useSetSettingsContext } from "../contexts/SettingsContext";
+import Shade from "./Shade";
 
 function TodoApp() {
   const [todos, setTodos] = useState([]);
   const [tab, setTab] = useState("todolist");
   const [menuVisible, setMenuVisible] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
-  const [scroll, setScroll] = useState(0);
+  const [shadeVisible, setShadeVisible] = useState(false);
+  const [animateOut, setAnimateOut] = useState(false);
+  const [scroll, setScroll] = useState(false);
+  const [clearTodos, setClearTodos] = useState(false);
   const todoAppRef = useRef();
   const user = useAuthContext();
   const setSettings = useSetSettingsContext();
+  const setInitialRender = useSetInitialRenderContext();
+  const [deleting, setDeleting] = useState(0);
 
   useEffect(() => {
     let unsubscribe
@@ -42,6 +48,7 @@ function TodoApp() {
         else {
           setTodos([]);
         }
+        setInitialRender(false);
       })
     }
     return unsubscribe;
@@ -49,42 +56,38 @@ function TodoApp() {
 
   const handleScroll = () => {
     if (tab === "todolist") {
-      setScroll(todoAppRef.current.scrollTop);
+      if (todoAppRef.current.scrollTop === 0) {
+        setScroll(false);
+      }
+      else {
+        setScroll(true);
+      }
     }
   }
 
-  useEffect(() => {
-    if (tab === "todolist") {
-      todoAppRef.current.scrollTo(0, scroll);
-    }
-  }, [tab])
-
   return (
-    <div className="bg-color-200 relative min-w-[240px] max-w-4xl lg:max-w-5xl h-screen mx-auto overflow-scroll" onScroll={handleScroll} ref={todoAppRef}>
+    <div className="bg-color-200 relative min-w-[240px] max-w-4xl lg:max-w-5xl h-screen mx-auto overflow-scroll scroll-smooth" onScroll={handleScroll} ref={todoAppRef}>
       {
         modalVisible &&
-        <Modal setTodos={setTodos} modalVisible={modalVisible} setModalVisible={setModalVisible} />
+        <Modal setModalVisible={setModalVisible} clearTodos={clearTodos} setClearTodos={setClearTodos} todos={todos} setDeleting={setDeleting} />
       }
       <div className="fixed w-full max-w-4xl lg:max-w-5xl z-40">
-        <Header tab={tab} setTab={setTab} scroll={scroll} setMenuVisible={setMenuVisible} todoAppRef={todoAppRef} />
+        <Header tab={tab} setTab={setTab} scroll={scroll} setMenuVisible={setMenuVisible} animateOut={animateOut} setAnimateOut={setAnimateOut} todoAppRef={todoAppRef} />
+        <Menu tab={tab} setTab={setTab} menuVisible={menuVisible} setMenuVisible={setMenuVisible} setShadeVisible={setShadeVisible} />
         {
-          tab === "todolist" && menuVisible &&
-          <Menu setTab={setTab} setMenuVisible={setMenuVisible} todoAppRef={todoAppRef} />
+          shadeVisible && <Shade animateOut={animateOut} tab={tab} menuVisible={menuVisible} setShadeVisible={setShadeVisible} />
         }
       </div>
       {/* <!-- App-Container --> */}
-      <div className="pt-[4.8rem]  4xs:pt-[6rem] xs:pt-[7.5rem] px-2 4xs:px-4 sm:px-6 md:px-10 lg:px-16">
+      <div className="pt-[76px] 4xs:pt-[96px] xs:pt-[120px]">
+        <AddTodo todos={todos} tab={tab} todoAppRef={todoAppRef} />
+        <Todolist todos={todos} tab={tab} clearTodos={clearTodos} setDeleting={setDeleting} />
+        <ClearButtons todos={todos} tab={tab} setModalVisible={setModalVisible} clearTodos={clearTodos} setClearTodos={setClearTodos} deleting={deleting} setDeleting={setDeleting} />
         {
-          tab === "todolist" ?
-            <>
-              <AddTodo todos={todos} />
-              <Todolist todos={todos} />
-              <ClearButtons todos={todos} setModalVisible={setModalVisible} />
-            </>
-            :
-            tab === "settings" ?
-              <Settings setTab={setTab} /> :
-              <About />
+          tab === "settings" && <Settings animateOut={animateOut} setAnimateOut={setAnimateOut} setShadeVisible={setShadeVisible} setTab={setTab} />
+        }
+        {
+          tab === "about" && <About animateOut={animateOut} setAnimateOut={setAnimateOut} setShadeVisible={setShadeVisible} setTab={setTab} />
         }
       </div>
     </div>

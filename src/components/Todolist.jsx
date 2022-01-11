@@ -1,12 +1,12 @@
 import Todo from "./Todo";
 
-function Todolist({ todos }) {
+function Todolist({ todos, tab, clearTodos, setDeleting }) {
   return (
-    <div className="todolist mb-4">
+    <div>
       {
-        todos.map((todo, i) => {
+        todos.map((todo) => {
           return (
-            <Todo key={i} todo={todo} todos={todos} />
+            <Todo key={todo.id} todo={todo} todos={todos} tab={tab} clearTodos={clearTodos} setDeleting={setDeleting} />
           )
         })
       }

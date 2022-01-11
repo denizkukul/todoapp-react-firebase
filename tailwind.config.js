@@ -11,7 +11,8 @@ module.exports = {
       'sm': '640px',
       'md': '768px',
       'lg': '1024px',
-      'tall': { 'raw': '(min-height: 650px)' }
+      'tall': { 'raw': '(min-height: 650px)' },
+      'hoverable': { 'raw': '(hover: hover)' },
     },
     extend: {
       colors: {
@@ -29,6 +30,19 @@ module.exports = {
       fontFamily: {
         'sans': ['roboto', 'ui-sans-serif', 'system-ui']
       },
+      transitionDuration: {
+        'default': '300ms',
+        'fast': '150ms',
+        'todo': '300ms, 300ms, 150ms',
+      },
+      transitionDelay: {
+        'headerButton': '0ms, 150ms, 150ms',
+        'fast': '150ms',
+        'default': '300ms',
+      },
+      transitionTimingFunction: {
+        'headerButton': 'cubic-bezier(0.4, 0, 0.2, 1), linear, linear'
+      }
     },
   },
   plugins: [],

@@ -1,7 +1,32 @@
-function About() {
+import { useAnimationDurationContext, useSettingsContext } from "../contexts/SettingsContext";
+import { useState, useEffect } from "react";
+
+function About({ setTab, animateOut, setAnimateOut }) {
+  const animationDurations = useAnimationDurationContext();
+  const enableAnimations = useSettingsContext().enableAnimations;
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    /* Animate Slide In */
+    if (enableAnimations) {
+      setActive(true);
+    }
+  }, [])
+
+  useEffect(() => {
+    /* Animate Slide Out */
+    if (animateOut) {
+      setActive(false);
+      setTimeout(() => {
+        setAnimateOut(false);
+        setTab("todolist");
+      }, animationDurations.default)
+    }
+  }, [animateOut])
+
   return (
-    <div className="text-color-700">
-      <div>
+    <div className={`${enableAnimations ? `transition-[height] duration-default ${active ? "h-full" : "h-0"}` : "h-full"} overflow-scroll px-2 4xs:px-4 sm:px-6 md:px-10 lg:px-16 fixed top-12 4xs:top-16 xs:top-20 bottom-0 w-full min-w-[240px] max-w-4xl lg:max-w-5xl bg-color-200 text-color-700 z-50`}>
+      <div className="pt-7 4xs:pt-8 xs:pt-10 h-[700px]">
         <h1 className="text-[22px]">
           App
         </h1>
@@ -33,33 +58,33 @@ function About() {
         </h1>
         <ul className="ml-5">
           <li>
-            <a href="" className="hover:text-color-800 hover:underline">
+            <a href="https://github.com/denizkukul/todoapp-react-firebase" className="outline-none focus-visible:text-color-800 focus-visible:underline hoverable:hover:text-color-800 hoverable:hover:underline" target={"_blank"}>
               Github
             </a>
           </li>
           <li>
-            <a href="https://reactjs.org/" className="hover:text-color-800 hover:underline">
+            <a href="https://reactjs.org/" className="outline-none focus-visible:text-color-800 focus-visible:underline hoverable:hover:text-color-800 hoverable:hover:underline" target={"_blank"}>
               React
             </a>
           </li>
           <li>
-            <a href="https://tailwindcss.com/" className="hover:text-color-800 hover:underline">
+            <a href="https://tailwindcss.com/" className="outline-none focus-visible:text-color-800 focus-visible:underline hoverable:hover:text-color-800 hoverable:hover:underline" target={"_blank"}>
               Tailwindcss
             </a>
           </li>
           <li>
-            <a href="https://google.github.io/material-design-icons/" className="hover:text-color-800 hover:underline">
+            <a href="https://google.github.io/material-design-icons/" className="outline-none focus-visible:text-color-800 focus-visible:underline hoverable:hover:text-color-800 hoverable:hover:underline" target={"_blank"}>
               Material Design Icons
             </a>
           </li>
           <li>
-            <a href="https://firebase.google.com/" className="hover:text-color-800 hover:underline">
+            <a href="https://firebase.google.com/" className="outline-none focus-visible:text-color-800 focus-visible:underline hoverable:hover:text-color-800 hoverable:hover:underline" target={"_blank"}>
               Firebase
             </a>
           </li>
         </ul>
         <div className="mt-5 pb-12 text-center">
-          Created by <a href="https://github.com/denizkukul">Deniz Kukul</a>
+          Created by <a href="https://github.com/denizkukul" className="outline-none focus-visible:text-color-800 focus-visible:underline hoverable:hover:text-color-800 hoverable:hover:underline" target={"_blank"}>Deniz Kukul</a>
         </div>
       </div>
     </div>
